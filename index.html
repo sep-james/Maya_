@@ -16,18 +16,22 @@
     }
 
     .message {
-      font-size: 9vh; /* tamanho fixo do texto central */
+      font-size: 8vh; /* tamanho fixo do texto central */
       color: white;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-      position: relative;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       z-index: 2;
+      text-align: center;
     }
 
     .falling {
       position: absolute;
       top: -10%;
       color: white;
-      font-size: 6vh; /* tamanho fixo dos que caem */
+      font-size: 5vh; /* tamanho fixo dos que caem */
       text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
       animation: fall linear infinite;
       white-space: nowrap;
