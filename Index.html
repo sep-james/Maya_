@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Te Amo Maya 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      text-align: center;
+      z-index: 1;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .fall {
+      position: absolute;
+      top: -50px;
+      font-size: 1.2rem;
+      color: white;
+      text-shadow: 0 0 8px rgba(255,255,255,0.8);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>💖 Te amo, Maya 💖</h1>
+
+  <script>
+    function criarFrase() {
+      const frase = document.createElement("div");
+      frase.classList.add("fall");
+      frase.textContent = "Te amo Maya 💕";
+
+      frase.style.left = Math.random() * 100 + "vw";
+      frase.style.animationDuration = 3 + Math.random() * 3 + "s";
+
+      document.body.appendChild(frase);
+
+      setTimeout(() => {
+        frase.remove();
+      }, 6000);
+    }
+
+    setInterval(criarFrase, 500);
+  </script>
+</body>
+</html>
