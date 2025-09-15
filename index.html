@@ -2,70 +2,71 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Te amo, Maya 💖</title>
+  <title>Te Amo Maya 💖</title>
   <style>
     body {
       margin: 0;
       height: 100vh;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #ffb6c1, #ffcce0);
-      overflow: hidden;
       font-family: 'Comic Sans MS', cursive, sans-serif;
     }
 
-    .message {
-      font-size: 8vh; /* tamanho fixo do texto central */
+    h1 {
+      font-size: 9vw; /* tamanho proporcional à largura da tela */
       color: white;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
       text-align: center;
+      z-index: 1;
+      animation: pulse 2s infinite;
+      white-space: nowrap; /* impede de quebrar em duas linhas */
     }
 
-    .falling {
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .fall {
       position: absolute;
-      top: -10%;
+      top: -50px;
+      font-size: 5vw; /* ajusta também o tamanho das frases que caem */
       color: white;
-      font-size: 5vh; /* tamanho fixo dos que caem */
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      text-shadow: 0 0 8px rgba(255,255,255,0.8);
       animation: fall linear infinite;
       white-space: nowrap;
     }
 
     @keyframes fall {
-      to {
-        transform: translateY(120vh) rotate(360deg);
-      }
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="message">💖 Te amo, Maya 💖</div>
+  <h1>💖 Te amo, Maya 💖</h1>
 
   <script>
-    function createFallingText() {
-      const falling = document.createElement("div");
-      falling.classList.add("falling");
-      falling.innerText = "Te amo, Maya 💕";
+    function criarFrase() {
+      const frase = document.createElement("div");
+      frase.classList.add("fall");
+      frase.textContent = "Te amo Maya 💕";
 
-      // posição inicial aleatória na largura da tela
-      falling.style.left = Math.random() * 100 + "vw";
+      frase.style.left = Math.random() * 100 + "vw";
+      frase.style.animationDuration = 3 + Math.random() * 3 + "s";
 
-      // duração da animação aleatória (para variar a velocidade)
-      falling.style.animationDuration = (Math.random() * 3 + 4) + "s";
+      document.body.appendChild(frase);
 
-      document.body.appendChild(falling);
-
-      // remover depois que passar
-      setTimeout(() => falling.remove(), 7000);
+      setTimeout(() => {
+        frase.remove();
+      }, 6000);
     }
 
-    setInterval(createFallingText, 800);
+    setInterval(criarFrase, 500);
   </script>
 </body>
 </html>
