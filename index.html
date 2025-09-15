@@ -51,22 +51,35 @@
   <h1>💖 Te amo, Maya 💖</h1>
 
   <script>
-    function criarFrase() {
-      const frase = document.createElement("div");
-      frase.classList.add("fall");
-      frase.textContent = "Te amo Maya 💕";
+  const maxFrases = 15; // limite de frases na tela
+  const frasesAtuais = []; // array para controlar as frases
 
-      frase.style.left = Math.random() * 100 + "vw";
-      frase.style.animationDuration = 3 + Math.random() * 3 + "s";
-
-      document.body.appendChild(frase);
-
-      setTimeout(() => {
-        frase.remove();
-      }, 6000);
+  function criarFrase() {
+    if (frasesAtuais.length >= maxFrases) {
+      // remove a frase mais antiga antes de criar outra
+      const velha = frasesAtuais.shift();
+      velha.remove();
     }
 
-    setInterval(criarFrase, 500);
+    const frase = document.createElement("div");
+    frase.classList.add("fall");
+    frase.textContent = "Te amo Maya 💕";
+
+    frase.style.left = Math.random() * 100 + "vw";
+    frase.style.animationDuration = 3 + Math.random() * 3 + "s";
+
+    document.body.appendChild(frase);
+    frasesAtuais.push(frase);
+
+    // remove após terminar animação
+    setTimeout(() => {
+      const index = frasesAtuais.indexOf(frase);
+      if (index > -1) frasesAtuais.splice(index, 1);
+      frase.remove();
+    }, 6000);
+  }
+
+  setInterval(criarFrase, 500);
   </script>
 </body>
 </html>
