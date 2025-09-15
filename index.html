@@ -16,12 +16,13 @@
     }
 
     h1 {
-      font-size: 4rem;
+      font-size: 8vw; /* tamanho proporcional à tela */
       color: white;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
       text-align: center;
       z-index: 1;
       animation: pulse 2s infinite;
+      white-space: nowrap;
     }
 
     @keyframes pulse {
@@ -33,10 +34,10 @@
     .fall {
       position: absolute;
       top: -50px;
-      font-size: 1.2rem;
       color: white;
       text-shadow: 0 0 8px rgba(255,255,255,0.8);
       animation: fall linear infinite;
+      white-space: nowrap;
     }
 
     @keyframes fall {
@@ -54,11 +55,18 @@
       frase.classList.add("fall");
       frase.textContent = "Te amo Maya 💕";
 
+      // posição horizontal aleatória
       frase.style.left = Math.random() * 100 + "vw";
+
+      // duração da animação aleatória
       frase.style.animationDuration = 3 + Math.random() * 3 + "s";
+
+      // tamanho aleatório entre 3vw e 5vw (maior e visível)
+      frase.style.fontSize = (3 + Math.random() * 2) + "vw";
 
       document.body.appendChild(frase);
 
+      // remover depois de cair
       setTimeout(() => {
         frase.remove();
       }, 6000);
