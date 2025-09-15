@@ -16,7 +16,7 @@
     }
 
     h1 {
-      font-size: 8vw; /* tamanho proporcional à tela */
+      font-size: 8vw; /* proporcional à largura da tela */
       color: white;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
       text-align: center;
@@ -36,8 +36,9 @@
       top: -50px;
       color: white;
       text-shadow: 0 0 8px rgba(255,255,255,0.8);
-      animation: fall linear infinite;
+      animation: fall linear forwards;
       white-space: nowrap;
+      pointer-events: none; /* não atrapalha cliques */
     }
 
     @keyframes fall {
@@ -51,6 +52,9 @@
 
   <script>
     function criarFrase() {
+      // limitar frases na tela
+      if (document.querySelectorAll(".fall").length > 20) return;
+
       const frase = document.createElement("div");
       frase.classList.add("fall");
       frase.textContent = "Te amo Maya 💕";
@@ -59,20 +63,20 @@
       frase.style.left = Math.random() * 100 + "vw";
 
       // duração da animação aleatória
-      frase.style.animationDuration = 3 + Math.random() * 3 + "s";
+      const duracao = 4 + Math.random() * 3; // entre 4s e 7s
+      frase.style.animationDuration = duracao + "s";
 
-      // tamanho aleatório entre 3vw e 5vw (maior e visível)
+      // tamanho aleatório entre 3vw e 5vw
       frase.style.fontSize = (3 + Math.random() * 2) + "vw";
 
       document.body.appendChild(frase);
 
-      // remover depois de cair
-      setTimeout(() => {
-        frase.remove();
-      }, 6000);
+      // remover após a animação
+      setTimeout(() => frase.remove(), duracao * 1000);
     }
 
-    setInterval(criarFrase, 500);
+    // cria uma nova frase a cada 700ms (menos frequente que antes)
+    setInterval(criarFrase, 700);
   </script>
 </body>
 </html>
