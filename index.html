@@ -31,7 +31,7 @@
       50% { transform: scale(1.05); }
     }
 
-    /* Corações caindo */
+    /* Emojis caindo (flores e corações) */
     .heart {
       position: absolute;
       top: -10vh;
@@ -53,33 +53,40 @@
       }
     }
 
-    /* Botão continuar */
+    /* Botão rosa */
     #continuarBtn {
       position: absolute;
-      bottom: 20px;
-      padding: 10px 25px;
-      font-size: 1.3rem;
+      bottom: 40px;
+      padding: 14px 40px;
+      font-size: 1.4rem;
       border: none;
-      border-radius: 12px;
-      background-color: #ff6b81;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #ff6b81, #ffb6c1);
       color: white;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.2s, background-color 0.2s;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
       z-index: 2;
+      font-weight: bold;
     }
 
     #continuarBtn:hover {
       transform: scale(1.1);
-      background-color: #ff3b5c;
+      box-shadow: 0 0 20px rgba(255, 107, 129, 0.8);
+    }
+
+    #continuarBtn:active {
+      transform: scale(0.98);
     }
   </style>
 </head>
 <body>
   <h1>💖 Te amo, Maya 💖</h1>
-  <button id="continuarBtn">Continuar</button>
 
-  <!-- Vários corações/florzinhas já no HTML -->
+  <!-- Botão -->
+  <button id="continuarBtn">🌸 Continuar 🌸</button>
+
+  <!-- Emojis caindo -->
   <div class="heart" style="left:10%; animation-duration:6s; animation-delay:0s;">💗</div>
   <div class="heart" style="left:25%; animation-duration:7s; animation-delay:2s;">🌸</div>
   <div class="heart" style="left:40%; animation-duration:8s; animation-delay:1s;">💖</div>
@@ -90,7 +97,7 @@
   <script>
     // Redireciona ao clicar no botão
     document.getElementById("continuarBtn").addEventListener("click", () => {
-      window.location.href = "flor.html"; // troque pelo seu destino
+      window.location.href = "flor.html";
     });
   </script>
 </body>
