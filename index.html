@@ -10,6 +10,7 @@
       background: linear-gradient(135deg, #ffdde1, #ee9ca7);
       overflow: hidden;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -24,6 +25,7 @@
       z-index: 2;
       animation: pulse 2.5s ease-in-out infinite;
       white-space: nowrap;
+      margin-bottom: 100px; /* dá espaço pro botão aparecer */
     }
 
     @keyframes pulse {
@@ -31,7 +33,7 @@
       50% { transform: scale(1.05); }
     }
 
-    /* Emojis caindo (flores e corações) */
+    /* Emojis caindo */
     .heart {
       position: absolute;
       top: -10vh;
@@ -40,6 +42,7 @@
       font-size: 2rem;
       text-shadow: 0 0 6px rgba(255,255,255,0.6);
       animation: fall linear infinite;
+      z-index: 1;
     }
 
     @keyframes fall {
@@ -55,8 +58,8 @@
 
     /* Botão rosa */
     #continuarBtn {
-      position: absolute;
-      bottom: 40px;
+      margin-top: auto;
+      margin-bottom: 40px;
       padding: 14px 40px;
       font-size: 1.4rem;
       border: none;
@@ -66,8 +69,8 @@
       cursor: pointer;
       box-shadow: 0 6px 12px rgba(0,0,0,0.2);
       transition: transform 0.2s ease, box-shadow 0.3s ease;
-      z-index: 2;
       font-weight: bold;
+      z-index: 3;
     }
 
     #continuarBtn:hover {
@@ -83,7 +86,6 @@
 <body>
   <h1>💖 Te amo, Maya 💖</h1>
 
-  <!-- Botão -->
   <button id="continuarBtn">🌸 Continuar 🌸</button>
 
   <!-- Emojis caindo -->
