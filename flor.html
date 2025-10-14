@@ -9,24 +9,34 @@
       height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: flex-end; /* Mantém a mensagem no rodapé */
+      align-items: flex-end;
       background: url('gatinho.jpg') no-repeat center center;
-      background-size: contain; /* Mostra a imagem inteira */
+      background-size: contain;
       font-family: 'Comic Sans MS', cursive, sans-serif;
       overflow: hidden;
       position: relative;
     }
 
     .message {
+      position: absolute;
+      bottom: 10vh; /* Sobe a mensagem 10% da altura da tela */
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 5vh;
       color: white;
       text-align: center;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
       padding: 15px 25px;
-      background: rgba(0,0,0,0.7); /* Fundo preto com transparência */
+      background: rgba(0,0,0,0.7);
       border-radius: 20px;
-      margin-bottom: 20px; /* Espaço do rodapé */
-      max-width: 90%; /* Para não estourar a tela */
+      max-width: 90%;
+    }
+
+    @media (max-height: 600px) {
+      .message {
+        bottom: 8vh; /* Ajuste fino pra telas muito pequenas */
+        font-size: 4.5vh;
+      }
     }
   </style>
 </head>
