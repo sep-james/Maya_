@@ -88,7 +88,7 @@
       frase.textContent = "Te amo Maya 💕";
 
       frase.style.left = Math.random() * 90 + "vw";
-      frase.style.animationDuration = 4 + Math.random() * 2 + "s";
+      frase.style.animationDuration = 3 + Math.random() * 2 + "s";
 
       document.body.appendChild(frase);
       frasesAtuais.push(frase);
@@ -98,7 +98,7 @@
         const index = frasesAtuais.indexOf(frase);
         if (index > -1) frasesAtuais.splice(index, 1);
         frase.remove();
-      }, parseFloat(frase.style.animationDuration) * 1000);
+      }, parseFloat(frase.style.animationDuration) * 800);
     }
 
     // Cria frases a cada 800ms
